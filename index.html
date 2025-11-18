@@ -1189,10 +1189,7 @@ Fomentar la inclusión, la motivación y el desarrollo integral a través del ju
         mostrarPortada();
       }
     });
-
-    window.addEventListener('scroll', toggleBackToTop);
-
-    // Carrusel de imágenes
+// Carrusel de imágenes
 function initCarousel() {
   const slides = document.querySelectorAll('.carousel-slide');
   const indicators = document.querySelectorAll('.indicator');
@@ -1262,11 +1259,13 @@ function initCarousel() {
 
 // Inicializar carrusel cuando la página cargue
 window.addEventListener('load', initCarousel);
+    window.addEventListener('scroll', toggleBackToTop);
   </script>
 
 </body>
 
 </html>
+
 
 
 
