@@ -654,6 +654,97 @@
       color: var(--white); /* Asegurar que los textos de contacto sean blancos */
     }
 
+    /* Estilos para el carrusel */
+.carousel-container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--white);
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: var(--primary-black);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: var(--white);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: var(--white);
+  transform: scale(1.2);
+}
+    
     /* Responsive */
     @media (max-width: 768px) {
       .sidebar {
@@ -853,38 +944,59 @@ Fomentar la inclusión, la motivación y el desarrollo integral a través del ju
     </section>
 
     <section id="producto">
-      <h2>Producto: MINI BOARDS FOR CHILDREN</h2>
-      <div class="section-content">
-        <div class="section-text">
-          <p>Tableros de baloncesto portátiles y adaptados, diseñados específicamente para niños de 8 a 10 años.</p>
-          <p><strong>Características Técnicas:</strong></p>
-          <ul>
-            <li><strong>Medidas del tablero:</strong>1.20 m x 0.90 m.</li>
-            <li><strong>Altura del aro:</strong>2.60 m (ajustable según necesidades).</li>
-            <li><strong>Diámetro del aro:</strong>45 cm.</li>
-            <li><strong>Materiales:</strong>Tubo cuadrado, tubo rectangular, tablero de acrílico, aro metálico con recubrimiento de seguridad.</li>
-            <li><strong>Portabilidad:</strong>Incluye ruedas para fácil movilidad.</li>
-            <li><strong>Seguridad:</strong>Esquinas redondeadas y materiales no tóxicos.</li>
-            <li><strong>Diseño:</strong>Cuadro de referencia blanco de 59 x 45 cm para mejorar la precisión.</li>
-          </ul>
+  <h2>Producto: MINI BOARDS FOR CHILDREN</h2>
+  <div class="section-content">
+    <div class="section-text">
+      <p>Tableros de baloncesto portátiles y adaptados, diseñados específicamente para niños de 8 a 10 años.</p>
+      <p><strong>Características Técnicas:</strong></p>
+      <ul>
+        <li><strong>Medidas del tablero:</strong> 1.20 m x 0.90 m</li>
+        <li><strong>Altura del aro:</strong> 2.60 m (ajustable según necesidades)</li>
+        <li><strong>Diámetro del aro:</strong> 45 cm</li>
+        <li><strong>Materiales:</strong> Tubo cuadrado, tubo rectangular, tablero de acrílico, aro metálico con recubrimiento de seguridad</li>
+        <li><strong>Portabilidad:</strong> Incluye ruedas para fácil movilidad</li>
+        <li><strong>Seguridad:</strong> Esquinas redondeadas y materiales no tóxicos</li>
+        <li><strong>Diseño:</strong> Cuadro de referencia blanco de 59 x 45 cm para mejorar la precisión</li>
+      </ul>
+    </div>
+    
+    <div class="section-image">
+      <!-- CARRUSEL DE IMÁGENES -->
+      <div class="carousel-container">
+        <div class="carousel">
+          <div class="carousel-slide active">
+            <img src="100.jpeg" alt="Mini Board - Vista frontal">
+          </div>
+          <div class="carousel-slide">
+            <img src="101.jpeg" alt="Mini Board - Vista lateral">
+          </div>
+          <div class="carousel-slide">
+            <img src="102.jpeg" alt="Mini Board - Detalle del aro">
+          </div>
+          <div class="carousel-slide">
+            <img src="104.jpeg" alt="Mini Board - En uso">
+          </div>
         </div>
-        <div class="section-image">
-          <!-- Imagen SVG en lugar de placeholder -->
-          <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="productGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#222222" />
-                <stop offset="100%" stop-color="#444444" />
-              </linearGradient>
-            </defs>
-            <rect width="400" height="250" fill="url(#productGradient)" rx="10"/>
-            <text x="50%" y="50%" text-anchor="middle" dy="0.35em" font-family="Oswald, sans-serif" font-size="24" font-weight="700" fill="#ffffff">
-              PRODUCTO PRECISIÓN
-            </text>
-          </svg>
+        
+        <!-- Flechas de navegación -->
+        <button class="carousel-btn prev-btn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-btn next-btn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+          <span class="indicator active" data-slide="0"></span>
+          <span class="indicator" data-slide="1"></span>
+          <span class="indicator" data-slide="2"></span>
+          <span class="indicator" data-slide="3"></span>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <section id="objetivo">
       <h2>Objetivo del Proyecto</h2>
@@ -1079,10 +1191,82 @@ Fomentar la inclusión, la motivación y el desarrollo integral a través del ju
     });
 
     window.addEventListener('scroll', toggleBackToTop);
+
+    // Carrusel de imágenes
+function initCarousel() {
+  const slides = document.querySelectorAll('.carousel-slide');
+  const indicators = document.querySelectorAll('.indicator');
+  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn');
+  let currentSlide = 0;
+  let autoPlayInterval;
+
+  function showSlide(index) {
+    // Oculta todas las slides
+    slides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    // Muestra la slide actual
+    slides[index].classList.add('active');
+    indicators[index].classList.add('active');
+    currentSlide = index;
+  }
+
+  function nextSlide() {
+    let nextIndex = (currentSlide + 1) % slides.length;
+    showSlide(nextIndex);
+  }
+
+  function prevSlide() {
+    let prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(prevIndex);
+  }
+
+  function startAutoPlay() {
+    autoPlayInterval = setInterval(nextSlide, 4000); // Cambia cada 4 segundos
+  }
+
+  function stopAutoPlay() {
+    clearInterval(autoPlayInterval);
+  }
+
+  // Event listeners
+  nextBtn.addEventListener('click', () => {
+    stopAutoPlay();
+    nextSlide();
+    startAutoPlay();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    stopAutoPlay();
+    prevSlide();
+    startAutoPlay();
+  });
+
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      stopAutoPlay();
+      showSlide(index);
+      startAutoPlay();
+    });
+  });
+
+  // Pausar autoplay al hover
+  const carousel = document.querySelector('.carousel');
+  carousel.addEventListener('mouseenter', stopAutoPlay);
+  carousel.addEventListener('mouseleave', startAutoPlay);
+
+  // Iniciar autoplay
+  startAutoPlay();
+}
+
+// Inicializar carrusel cuando la página cargue
+window.addEventListener('load', initCarousel);
   </script>
 
 </body>
 
 </html>
+
 
 
